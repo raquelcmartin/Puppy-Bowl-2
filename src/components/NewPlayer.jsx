@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom'
 
 export default function NewPlayer() {
 
-    const [name, setName] = useState()
-    const [breed, setBreed] = useState()
-    const [imageUrl, setimageUrl] = useState()
+    const [name, setName] = useState(''); // Initialize with empty strings
+    const [breed, setBreed] = useState('');
+    const [imageUrl, setimageUrl] = useState('');
 
     const navigate = useNavigate()
 
@@ -28,11 +28,11 @@ export default function NewPlayer() {
             try {
                 const { data } = await axios.post('https://fsa-puppy-bowl.herokuapp.com/api/raquelcmartin/players', payload)
     
-                // navigate to the AllItems page
-                navigate('/')
+                // navigate to the home page after successful submission
+                navigate('/');
     
             } catch (err) {
-                console.error(err)
+                console.error(err);
             }
 
         }
@@ -52,11 +52,10 @@ export default function NewPlayer() {
                 ImageUrl:
                 <input value={imageUrl} onChange={(e) => setimageUrl(e.target.value)} />
             </label>
-
+            <div className="button-container">
             <button type='button' onClick={clearForm}>Clear Form</button>
             <button type='submit'>Add Player</button>
-
-
+            </div>
 
         </form>
     )
