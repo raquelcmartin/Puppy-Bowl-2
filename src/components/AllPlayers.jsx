@@ -41,7 +41,7 @@ export default function AllPlayers() {
     }
     return (
         <>
-        <label> Puppy Search 
+        <label className="pup-search"> Puppy Search 
             <input id='seach-bar' placeholder="type a puppy's name here . . ." value={searchInput} onChange={searchHandler} />
         </label>
         <section className='all-players'>
